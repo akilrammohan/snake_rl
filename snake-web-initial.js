@@ -1,4 +1,4 @@
-let webLatestVersion = 4; //Update this every time a new version is added. This should correspond to the version of the snake clone in v/current.
+let webLatestVersion = 5; //Update this every time a new version is added. This should correspond to the version of the snake clone in v/current.
 
 //Code in here runs before snake-mod-loader-web.js
 //Useful to help set stuff up specific to the web version, that doesn't belong in the mod-loader script
@@ -70,6 +70,8 @@ function makeUrlAbsolute(url) {
 }
 
 function switchToMobile() {
+  const currentGameVersion = getGameVersionFromUrl(); //defined in snake-mod-loader-web.js
+
   //Add is-mobile data attribute
   let snakeContainer = document.getElementsByClassName('EjCLSb')[0];
   snakeContainer.dataset.isMobile = '';
@@ -149,6 +151,198 @@ function switchToMobile() {
       padding-left: 0 !important;
   }
   `;
+
+  if(currentGameVersion >= 5) {
+    //Add in additional changes to the html/css that were introduced in version 5
+    css += `
+    /*hide icons on the menu buttons (play/settings/daily challenge) to save space on small screens*/
+    @media only screen and (max-width: 285px) {
+      .DwxlBd {
+          display:none
+      }
+    }
+
+    /* I'm not 100% sure what .jKj29e is for.
+      I suspect it is used to hide menu buttons as above when the translations for play/settings/daily challenge are really long (>20 chars)
+    */
+    @media only screen and (max-width: 340px) {
+        .jKj29e .DwxlBd {
+            display:none
+        }
+
+        .jKj29e .qM98Ge {
+            visibility: hidden
+        }
+    }
+
+    /* Same as above, but .KjMIn is for translations >25 chars.
+    @media only screen and (max-width: 355px) {
+        .jKj29e .DwxlBd {
+            display:none
+        }
+
+        .KjMIn .qM98Ge {
+            visibility: hidden
+        }
+    }
+
+    /* .SU4xse is set when the daily challenge menu is visible */
+    @media only screen and (max-width: 340px) {
+        /* Smaller image icons */
+        .SU4xse .fbftZe {
+            width:28px
+        }
+
+        /* Probably image icons again on daily challenge if there are at least 5 modes? */
+        .SU4xse .OZ9aHc {
+            border-radius: 4px;
+            margin: 3px;
+            padding: 3px;
+            width: 20px
+        }
+
+        /* Small daily challenge icons in the "previous days" view */
+        .SU4xse .Cg6pxb .fbftZe {
+            border-radius: 4px;
+            margin: 8px 2px;
+            padding: 2px;
+            width: 16px
+        }
+    }
+
+    /* Various restrictions based on height */
+    @media only screen and (max-height: 650px) {
+        /* Shorter play/settings/daily challenge buttons */
+        .FL0z2d {
+            height:36px;
+            margin-top: 8px
+        }
+
+        /* Shorter play/settings/daily challenge icons */
+        .DwxlBd {
+            height: 30px;
+            width: 30px
+        }
+
+        /* Small play/settings/daily challenge font-size */
+        .l3ryBd {
+            font-size: 17px
+        }
+
+        /* Maybe something for svgs? No idea really */
+        .w9ahb {
+            height: 26px;
+            width: 26px
+        }
+
+        .w9ahb svg {
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    /*  Undo some styles that exist only of the desktop version */
+    /* remove aspect ratio constraint on game canvas */
+    .jNB0Ic {
+        aspect-ratio: auto !important;
+    }
+
+    /*main container of everything */
+    :not(.DgO4x).EjCLSb {
+        max-width: none !important;
+    }
+
+    /*main container of everything */
+    @media only screen and (min-height: 650px) {
+        :not(.DgO4x).EjCLSb {
+            max-height: none !important;
+        }
+    }
+
+    /* Custom css for gsm so that the button for enabling touch pad controls isn't blocked */
+    .O6HIqc {
+      right: unset !important;
+      left: 10px;
+    }
+    `;
+
+    //Add class so that game can adapt height depending on whether mobile touchpad is enabled
+    let divWithMainCanvas = document.getElementsByClassName('cer0Bd')[0].parentElement;
+    divWithMainCanvas.classList.add('azpHl');
+
+    //Add stuff for the mobile touchpad (touchpad itself + the button to enable it)
+    let settingsOverlay = document.getElementsByClassName('wjOYOd')[0];
+
+    const touchpadHtml = `
+    <div jsname="Ycs2rd" class="Oiw5Ib" jsaction="touchstart:G0IZGc;touchmove:G0IZGc;touchend:G0IZGc" data-ved="0ahUKEwjzppHUw_eFAxWPR_EDHQIwB6kQvNgMCAM">
+        <div class="KM6Me">
+            <div jsname="MUDVS" class="CyfBUb fzrkB">
+                <div class="YD2pbc">
+                    <svg height="100%" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M480-360 280-560h400L480-360Z" fill="#000000"></path>
+                    </svg>
+                </div>
+            </div>
+            <div jsname="rmiREc" class="CyfBUb DVNA1b">
+                <div class="YD2pbc">
+                    <svg height="100%" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M480-360 280-560h400L480-360Z" fill="#000000"></path>
+                    </svg>
+                </div>
+            </div>
+            <div jsname="p4rndc" class="CyfBUb aq6vAe">
+                <div class="YD2pbc">
+                    <svg height="100%" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M480-360 280-560h400L480-360Z" fill="#000000"></path>
+                    </svg>
+                </div>
+            </div>
+            <div jsname="dICtMc" class="CyfBUb EyxhB">
+                <div class="YD2pbc">
+                    <svg height="100%" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M480-360 280-560h400L480-360Z" fill="#000000"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div jsname="k8ZH5e" class="ekPAb">
+            <div class="SjfyTc"></div>
+        </div>
+    </div>
+    `;
+
+    const enableTouchpadButton = `
+    <div class="O6HIqc" aria-label="Toggle virtual controls" role="button" tabindex="0" jsaction="Uex1ad">
+        <div class="qMDOx">
+            <svg height="100%" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                <path d="m296-345-56-56 240-240 240 240-56 56-184-184-184 184Z" fill="#FFFFFF"></path>
+            </svg>
+        </div>
+        <div jsname="ZxgYgc" class="DZekPe vCjPXe" data-ved="0ahUKEwjzppHUw_eFAxWPR_EDHQIwB6kQxvMMCAU">
+            <svg height="100%" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                <path d="M172.309-260.001q-30.308 0-51.308-21t-21-51.435v-295.128q0-30.435 21-51.435 21-21 51.308-21h615.382q30.308 0 51.308 21t21 51.435v295.128q0 30.435-21 51.435-21 21-51.308 21H172.309Zm0-59.999h615.382q4.616 0 8.463-3.846 3.846-3.847 3.846-8.463v-295.382q0-4.616-3.846-8.463-3.847-3.846-8.463-3.846H172.309q-4.616 0-8.463 3.846-3.846 3.847-3.846 8.463v295.382q0 4.616 3.846 8.463 3.847 3.846 8.463 3.846Zm117.692-50.001h59.998v-80h80v-59.998h-80v-80h-59.998v80h-80v59.998h80v80Zm289.954 0q20.814 0 35.429-14.57 14.615-14.57 14.615-35.384t-14.57-35.429q-14.57-14.615-35.384-14.615t-35.429 14.57q-14.615 14.57-14.615 35.384t14.57 35.429q14.57 14.615 35.384 14.615Zm120-120q20.814 0 35.429-14.57 14.615-14.57 14.615-35.384t-14.57-35.429q-14.57-14.615-35.384-14.615t-35.429 14.57q-14.615 14.57-14.615 35.384t14.57 35.429q14.57 14.615 35.384 14.615ZM160-320V-640-320Z" fill="#FFFFFF"></path>
+            </svg>
+        </div>
+        <div jsname="fIqioc" class="ufnB2c vCjPXe" data-ved="0ahUKEwjzppHUw_eFAxWPR_EDHQIwB6kQxfMMCAY">
+            <svg height="100%" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                <path d="M172.309-260.001q-30.308 0-51.308-21t-21-51.435v-295.128q0-30.435 21-51.435 21-21 51.308-21h615.382q30.308 0 51.308 21t21 51.435v295.128q0 30.435-21 51.435-21 21-51.308 21H172.309Zm0-59.999h615.382q4.616 0 8.463-3.846 3.846-3.847 3.846-8.463v-295.382q0-4.616-3.846-8.463-3.847-3.846-8.463-3.846H172.309q-4.616 0-8.463 3.846-3.846 3.847-3.846 8.463v295.382q0 4.616 3.846 8.463 3.847 3.846 8.463 3.846Zm117.692-50.001h59.998v-80h80v-59.998h-80v-80h-59.998v80h-80v59.998h80v80Zm289.954 0q20.814 0 35.429-14.57 14.615-14.57 14.615-35.384t-14.57-35.429q-14.57-14.615-35.384-14.615t-35.429 14.57q-14.615 14.57-14.615 35.384t14.57 35.429q14.57 14.615 35.384 14.615Zm120-120q20.814 0 35.429-14.57 14.615-14.57 14.615-35.384t-14.57-35.429q-14.57-14.615-35.384-14.615t-35.429 14.57q-14.615 14.57-14.615 35.384t14.57 35.429q14.57 14.615 35.384 14.615ZM160-320V-640-320Z" fill="#FFFFFF"></path>
+            </svg>
+        </div>
+    </div>
+    `;
+
+    settingsOverlay.insertAdjacentHTML('beforebegin', touchpadHtml);
+    settingsOverlay.insertAdjacentHTML('afterbegin', enableTouchpadButton);
+
+    //Rotate game to portrait for mobile
+    const rotateGameMobileHtml = `
+    <div jsname="ar2wLb" class="t6jjTb">
+        <img class="xAAoNb" src="https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/screen_rotation/default/48px.svg" alt="Rotate device to portrait">
+    </div>
+    `;
+
+    snakeContainer.insertAdjacentHTML('beforeend', rotateGameMobileHtml);
+  }
 
   let styleElement = document.querySelector('style');
   styleElement.innerHTML = styleElement.innerHTML + css;
