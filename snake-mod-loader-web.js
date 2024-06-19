@@ -27,6 +27,38 @@ if(WEB_VERSION) {
   let currentUrl = new URL(document.location);
   let params = currentUrl.searchParams;
   let mod = params.get("mod");
+  let debug = params.get("debug");
+
+  //debug=1 as get parameter to show error messages as alerts
+  if(typeof debug === 'string' && debug === '1') {
+    alert('Running in debug mode. Any errors that appear will show as alert boxes.');
+
+    //Note - this overrides google's error handler
+    // https://stackoverflow.com/questions/951791/javascript-global-event-mechanism
+    window.onerror = function(msg, url, line, col, error) {
+      if(msg.includes('ResizeObserver')) {
+        //Don't show unimportant "errors" from resizing
+        return false;
+      }
+
+      if(error && typeof error.stack === "string" && error.stack.length > 5) {
+        alert(error.stack);
+      } else {
+          // Note that col & error are new to the HTML 5 spec and may not be 
+          // supported in every browser.  It worked for me in Chrome.
+          var extra = !col ? '' : '\ncolumn: ' + col;
+          extra += !error ? '' : '\nerror: ' + error;
+
+          // You can view the information in an alert to see things working like this:
+          alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
+      }
+
+      var suppressErrorAlert = true;
+      // If you return true, then error alerts (like in older versions of 
+      // Internet Explorer) will be suppressed.
+      return suppressErrorAlert;
+    };
+  }
 
   if(typeof mod === 'string') {
     localStorage.setItem('snakeChosenMod', mod);
