@@ -4,14 +4,14 @@
 
   window.webSnake.urlMap = [
   {
-    "oldUrl": "https://www.google.com/xjs/_/js/k=xjs.s.en_GB.3Z7SsWepz7U.O/ck=xjs.s.jYd0EpJ79h8.L.B1.O/am=AJgDEQIAAAEMNCAAAAAAAAAAAAAAAAAAEgAACAAAAAAgSAkINJ8AmALABgQAAB-OQwACAACCAABEAQAAAgBwDJQQoACASACAAIQCAfz-GwAAAOAAAAAAEAIIEyBAAKi4BBIAAgIQRQQAABAAACIEDBgGIFABwIAjAAAAAAiAAAAAwADWsB9AgACAPgIBHAAIiAAAAgAGcPwAAgBQIBAQRAAOMEAACAABAAAA3AOA5wGDQQoLAAAAAAAAAAAAAAAIQIJgDqS_IAACAAAAAAAAAAAAAAAAAEgJOnF5AwAk/d=0/dg=0/br=1/ujg=1/rs=ACT90oFkqczP3WHop_OC05pml_VcRBFkQA/m=sygz,syh0,aLUfP,wQlYve,sy76m,sy76h,sy4yd,sy237,sy4h4,sy1w4,sysx,sypk,sy8d,sypl,pKhWu,sy6sd,pHXghd?xjs=s3",
+    "oldUrl": "https://www.google.com/xjs/_/js/k=xjs.s.en_GB.9ckpMs10nEQ.O/ck=xjs.s.X86YaFbGxCM.L.B1.O/am=QHIgIAQAAAIgAg0gAAAAAAAAAAAAAAAAAAAkAAAgBAAAAAACgEiBQOUTQF4BADYAIAAA8AE4IAAGAAAEAgAQBQAAIAAIgIMBFIEAQAEARAQAAQSNAH7_DQAAAGAAAAAAQAgQJoAAAxACcQlIgAAQgFCIAAAAwgAAACEoDDAMQFABwABOAQAAAAAAAIAAIgAADKAC9gMIEACgh0AAGADCRACAIABgABw_AAgAAAoQCEBABAA4IAMQAAAAAAAAwH0A8DxgMKSwAAAAAAAAAAAAAAAAApAgmAPSXxAAAgAAAAAAAAAAAAAAAAAgJWji8gYASA/d=0/dg=0/br=1/ujg=1/rs=ACT90oHoryPJOgcAUjojg1aKS6PU7Vvz1w/m=sygs,sygt,aLUfP,wQlYve,sy7ck,sy7cf,sy56f,sy2ii,sy4sg,sy1gd,sysz,syp9,sy8d,sypa,pKhWu,sy6zw,pHXghd?cb=DitfMfsKMQlJCOhR&xjs=s3",
     "newUrl": "snake.js"
   }
 ];
   
   window.webSnake.blockedUrls = [
-  "https://www.google.com/async/bgasy?ei=NsqjZsPqK4yokdUPkPeq4Q4&opi=89978449&yv=3&cs=0&async=_fmt:jspb",
-  "https://www.google.com/xjs/_/js/k=xjs.s.en_GB.3Z7SsWepz7U.O/am=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAACAkIBAAAgAIAAAAAAAACAAAAAACCAABEAQAAAgBwAJQQIACAQAAAAAQCAfz-GwAAAAAAAAAAAAIAEwBAAAC4AAAAAgIAAAQAABAAACAEAAAAAEABAAAAAAAAAAAAAAAAwAACoB8AAAAAAAAAAAAAAAAAAAAGIPwAAAAQAAAQBAAOMEAACAABAAAA3AOA5wGDQQoLAAAAAAAAAAAAAAAIQIJgDqS_IAACAAAAAAAAAAAAAAAAAEgJOnF5AwAk/d=0/dg=0/br=1/rs=ACT90oHhUFQOxPpcjtbBEe5KebtLt9m6Og/m=sb_wiz,aa,abd,sy12g,sy12e,sy129,syh3,sy12d,sy120,sy21n,sy1cu,sy124,sy1ct,sy12p,sy12n,sy1cr,sy12s,sy12l,sy12k,sy128,sy121,sy122,sysy,sy1cs,sy12w,sy11y,sy12x,sy12y,sy12m,sy12a,sy12c,sy125,sy11x,sy12i,sy1cv,sy135,sy136,sy134,async,sy14j,bgd,sy6zn,sy6zm,foot,sy2vf,kyn,sy1hn,lli,sf,sy1cl,sy16b,sy1cm,sy3q9,sonic,TxCJfd,sy7e7,qzxzOb,IsdWVc,sy234,syge,sy7e9,sy1tw,sy1tv,sy146,sy143,sy141,sy142,sy140,sy13z,sy25v,sy369,sy1am,sy13i,syz9,syza,syyg,syyk,sydk,sycn,sycq,syck,sycp,spch,tl?xjs=s4"
+  "https://www.google.com/async/bgasy?ei=_1DjZqDcLs6FhbIP34256AU&opi=89978449&yv=3&cs=0&async=_fmt:jspb",
+  "https://www.google.com/xjs/_/js/k=xjs.s.en_GB.9ckpMs10nEQ.O/am=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgECBQAAAAEABAAAAAAAAAAAAAAAAAAAEAgAQBQAAIAAAgAMAFIEAQAAABAQAAASIAH7_DQAAAAAAAAAAAAgAJgAAAQAAcAEAgAAQAACAAAAAwAAAACAIAAAAAEABAAAAAAAAAAAAAAAAAAAADCAA9AMAAAAAAAAAAABAAAAAAABgAAg_AAAAAAIAAEBAAAA4IAMQAAAAAAAAwH0A8DxgMKSwAAAAAAAAAAAAAAAAApAgmAPSXxAAAgAAAAAAAAAAAAAAAAAgJWji8gYASA/d=0/dg=0/br=1/rs=ACT90oEz5vQGysXudUZdr609XO9_1Dk2_g/m=sb_wiz,aa,abd,sy13s,sy13r,sy13m,sygw,sy13q,sy13c,sy2gy,sy15p,sy13h,sy15o,sy13z,sy13y,sy15h,sy14j,sy13l,sy143,sy13w,sy13v,sy13d,sy13e,syt0,sy15n,sy13n,sy13o,sy13p,sy147,sy13a,sy148,sy149,sy13x,sy13i,sy138,sy13g,sy15q,sy14i,sy14h,sy14g,async,sy19o,bgd,sy766,foot,sy1x3,kyn,sy1ql,sy258,lli,sf,sy15c,sy124,sy15d,sy3xy,sonic,TxCJfd,sy7k2,qzxzOb,IsdWVc,sy2if,syg7,sy7k5,sy7k4,sy1fg,sy1f5,sy1f4,sy1ev,sy1et,sy1eu,sy1es,sy1ez,sy1ey,sy1ex,sy1ew,sy1er,sy1fh,sy1fi,sy1el,sy1ep,syxz,syy0,syx4,syx8,syde,sych,syck,syce,sycj,spch,tl?cb=sFyyktonzWcTHwwc&xjs=s4"
 ];
   
   
